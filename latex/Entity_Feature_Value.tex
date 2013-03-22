@@ -1,0 +1,29 @@
+ \section{Entity-Feature-Value ODP}\begin{description}
+\item [CLASSIFICATION:] Good Practice.
+
+\item [MOTIVATION:] This ODP is used to represent modifiers with multiple aspects, thus features (e.g. colour with a certain brightness and saturation).
+
+\item [AIM:] To model features with the simplest structure possible.
+
+\item [STRUCTURE:] See Figure \ref{odp:EntityFeatureValue_abstract}.
+\begin{figure}[]\centering\includegraphics[width=\textwidth]{Catalogue/EntityFeatureValue_abstract}\caption{\label{odp:EntityFeatureValue_abstract} Abstract structure of the Entity-Feature-Value ODP.}\end{figure}
+
+\item [SAMPLE:] See Figure \ref{odp:EntityFeatureValue_instance}.
+\begin{figure}[]\centering\includegraphics[width=\textwidth]{Catalogue/EntityFeatureValue_instance}\caption{\label{odp:EntityFeatureValue_instance} Sample structure of the Entity-Feature-Value ODP.}\end{figure}
+
+\item [ELEMENTS:] The most important elements are the object properties (one for each aspect), the feature, and the values of the aspects.
+
+\item [IMPLEMENTATION:] For each aspect of the feature, an object property and a value partition should be created. For each of them, the domain should be the class Feature and the range the aspect value. The feature is really an Nary relationship ODP, and it is linked to each aspect by existential restrictions. The entity is linked to the feature with a Qualified Cardinality Restriction (QCR) of exactly one.
+
+\item [RESULT:] The entities, que features of those entities and the aspects of the features are properly separated.
+
+\item [SIDE EFFECTS:] Although this ODP can obviously handle multi aspect qualities, it is difficult to author because of the amount of entities that need to be added.
+
+\item [ADDITIONAL INFORMATION:] See also the Entity-Quality ODP and the Entity-Property-Value ODP.
+
+\item [REFERENCES: ] ~\begin{itemize}
+\item Alan Rector (Personal Communication).
+\item A. Gangemi, N. Guarino, C. Masolo, A. Oltramari and L. Schneider. Sweetening
+ontologies with dolce. In: LNCS, EKAW. (2002) 166-182.
+\item Mikel Egana, Alan Rector, Robert Stevens and Erick Antezana. Applying Ontology Design Patterns in bio-ontologies. EKAW 2008. LNCS 5268, pp. 7-16, 2008.\end{itemize}
+\item [URL: ] \url{http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl} \end{description}

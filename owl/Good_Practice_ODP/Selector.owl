@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Selector "http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#"
+     xml:base="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Selector.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Selector="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Selector;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Selector;reference"/>
+    <owl:AnnotationProperty rdf:about="&Selector;name"/>
+    <owl:AnnotationProperty rdf:about="&Selector;aim"/>
+    <owl:AnnotationProperty rdf:about="&Selector;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&Selector;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Selector;sample"/>
+    <owl:AnnotationProperty rdf:about="&Selector;elements"/>
+    <owl:AnnotationProperty rdf:about="&Selector;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Selector;classification"/>
+    <owl:AnnotationProperty rdf:about="&Selector;result"/>
+    <owl:AnnotationProperty rdf:about="&Selector;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#affects -->
+
+    <owl:ObjectProperty rdf:about="&Selector;affects"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#has_laterality -->
+
+    <owl:ObjectProperty rdf:about="&Selector;has_laterality">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&Selector;Laterality"/>
+        <rdfs:subPropertyOf rdf:resource="&Selector;has_selector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#has_selector -->
+
+    <owl:ObjectProperty rdf:about="&Selector;has_selector"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Anterior -->
+
+    <owl:Class rdf:about="&Selector;Anterior">
+        <rdfs:subClassOf rdf:resource="&Selector;AnteriorPosteriorSelector"/>
+        <owl:disjointWith rdf:resource="&Selector;Posterior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#AnteriorPosteriorSelector -->
+
+    <owl:Class rdf:about="&Selector;AnteriorPosteriorSelector">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Selector;Anterior"/>
+                    <rdf:Description rdf:about="&Selector;Posterior"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Selector;Selector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#DomainCorrect -->
+
+    <owl:Class rdf:about="&Selector;DomainCorrect">
+        <rdfs:subClassOf rdf:resource="&Selector;SelectorDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#DomainWrong -->
+
+    <owl:Class rdf:about="&Selector;DomainWrong">
+        <rdfs:subClassOf rdf:resource="&Selector;SelectorDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Hand -->
+
+    <owl:Class rdf:about="&Selector;Hand">
+        <rdfs:subClassOf rdf:resource="&Selector;DomainCorrect"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Selector;has_laterality"/>
+                <owl:someValuesFrom rdf:resource="&Selector;Laterality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#HandWrongModel -->
+
+    <owl:Class rdf:about="&Selector;HandWrongModel">
+        <rdfs:subClassOf rdf:resource="&Selector;DomainWrong"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Lateral -->
+
+    <owl:Class rdf:about="&Selector;Lateral">
+        <rdfs:subClassOf rdf:resource="&Selector;MedialLateralSelector"/>
+        <owl:disjointWith rdf:resource="&Selector;Medial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Laterality -->
+
+    <owl:Class rdf:about="&Selector;Laterality">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Selector;Left"/>
+                    <rdf:Description rdf:about="&Selector;Right"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Selector;Selector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Left -->
+
+    <owl:Class rdf:about="&Selector;Left">
+        <rdfs:subClassOf rdf:resource="&Selector;Laterality"/>
+        <owl:disjointWith rdf:resource="&Selector;Right"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#LeftHand -->
+
+    <owl:Class rdf:about="&Selector;LeftHand">
+        <rdfs:subClassOf rdf:resource="&Selector;HandWrongModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Medial -->
+
+    <owl:Class rdf:about="&Selector;Medial">
+        <rdfs:subClassOf rdf:resource="&Selector;MedialLateralSelector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#MedialLateralSelector -->
+
+    <owl:Class rdf:about="&Selector;MedialLateralSelector">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Selector;Lateral"/>
+                    <rdf:Description rdf:about="&Selector;Medial"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Selector;Selector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Posterior -->
+
+    <owl:Class rdf:about="&Selector;Posterior">
+        <rdfs:subClassOf rdf:resource="&Selector;AnteriorPosteriorSelector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Query -->
+
+    <owl:Class rdf:about="&Selector;Query">
+        <rdfs:subClassOf rdf:resource="&Selector;SelectorDomain"/>
+        <rdfs:comment xml:lang="en"
+            >burn and affects some (Hand and has_laterality some Right)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#RefiningEntity -->
+
+    <owl:Class rdf:about="&Selector;RefiningEntity">
+        <rdfs:subClassOf rdf:resource="&Selector;DomainCorrect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Right -->
+
+    <owl:Class rdf:about="&Selector;Right">
+        <rdfs:subClassOf rdf:resource="&Selector;Laterality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#RightHand -->
+
+    <owl:Class rdf:about="&Selector;RightHand">
+        <rdfs:subClassOf rdf:resource="&Selector;HandWrongModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#RightHandBurn -->
+
+    <owl:Class rdf:about="&Selector;RightHandBurn">
+        <rdfs:subClassOf rdf:resource="&Selector;burn"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Selector;affects"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Selector;Hand"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Selector;has_laterality"/>
+                                <owl:someValuesFrom rdf:resource="&Selector;Right"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#Selector -->
+
+    <owl:Class rdf:about="&Selector;Selector">
+        <rdfs:subClassOf rdf:resource="&Selector;RefiningEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#SelectorDomain -->
+
+    <owl:Class rdf:about="&Selector;SelectorDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <structure xml:lang="en"
+            >../img/Selector_abstract.png</structure>
+        <sample xml:lang="en"
+            >../img/Selector_instance.png</sample>
+        <reference xml:lang="en"
+            >Alan Rector (Personal Communication)</reference>
+        <side_effects xml:lang="en"
+            >Depending on the selection procedure, information could be lost when deleting the subclasses (e.g. RightHand), as they can have further subclasses or interesting axioms</side_effects>
+        <reference xml:lang="en"
+            >Eleni Mikroyannidi. Abstracting and generalising a large anatomy ontology. MSc Dissertation, Computer Science, Uni. of Manchester. 2008</reference>
+        <classification xml:lang="en">Good Practice</classification>
+        <additional_information xml:lang="en"
+            >See also Entity-Feature-Value, Entity-Property-Value and Entity-Quality</additional_information>
+        <name xml:lang="en">Selector</name>
+        <motivation xml:lang="en"
+            >Selectors are widely used in the biomedical domain, especially in the realm of anatomy. A selector is a modifier that can be used to select between identical entities, e.g. right and left hand. Selectors are usually associated with simmetry (left-right,anterior-posterior,lateral-medial) and sometimes hard coded in ontologies, that is, for example left hand and right hand are introduced as subclasses of hand, which adds an unecessary amount of classes. This ODP avoids such proliferation of classes</motivation>
+        <elements xml:lang="en"
+            >The main element is the selector class, be it Laterality (covered by Left and Right), AnteriorPosteriorSelector (covered by Anterior and Posterior), etc. A functional object property, e.g. HasLaterality, is used to add a selector to the classes of the domain hierarchy (e.g. hand can be left or right)</elements>
+        <result xml:lang="en"
+            >The original ontology is considerably reduced in size. If we want to refer the original entities, we can do it by reusing the HasSelector property. For example, if we want to define a burn on the right hand, we can use the following expression: [Burn and Affects some (Hand and HasLaterality some Right)]</result>
+        <aim xml:lang="en"
+            >To recreate selectors, that is refining entities that can be used to choose between to alternatives: for example, right or left hand</aim>
+        <implementation xml:lang="en"
+            >Usually this ODP is implemented in already existing ontologies where selectors are implicit. For example, in the FMA ontology, the class Hand has the subclasses LeftHand and RightHand. Using this ODP, the classes LeftHand and RightHand can be deleted, and the class Hand is linked to the class Laterality via an existential restriction on the HasLaterality property</implementation>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Selector.owl#burn -->
+
+    <owl:Class rdf:about="&Selector;burn">
+        <rdfs:subClassOf rdf:resource="&Selector;DomainCorrect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

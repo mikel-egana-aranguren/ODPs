@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Entity_Quality "http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#"
+     xml:base="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Entity_Quality="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;structure"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;elements"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;aim"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;sample"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;name"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;result"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;classification"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;reference"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cellcycleontology.org/ontology/owl/CCO#has_quality -->
+
+    <owl:ObjectProperty rdf:about="http://www.cellcycleontology.org/ontology/owl/CCO#has_quality"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#EntityQualityDomain -->
+
+    <owl:Class rdf:about="&Entity_Quality;EntityQualityDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <reference>Mikel Egana, Alan Rector, Robert Stevens and Erick Antezana. Applying Ontology Design Patterns in bio-ontologies. EKAW 2008. LNCS 5268, pp. 7-16, 2008</reference>
+        <structure xml:lang="en">../img/EntityQuality_abstract.png</structure>
+        <sample xml:lang="en">../img/EntityQuality_instance.png</sample>
+        <reference xml:lang="en">Alan Rector (Personal Communication)</reference>
+        <name xml:lang="en">Entity-Quality</name>
+        <classification xml:lang="en">Good Practice</classification>
+        <reference xml:lang="en">P. Grenon, B. Smith, L. Goldberg. Biodynamic ontology: Applying BFO in the biomedical domain. In Pisanelli, D.M., ed.: Ontologies in Medicine, IOS Press
+(2004) 20-38</reference>
+        <motivation xml:lang="en">Qualities modify independent entities (e.g. position, colour, etc.) and thus they are dependent entities</motivation>
+        <additional_information xml:lang="en">See also Entity-Feature-Value and Entity-Property-Value</additional_information>
+        <elements xml:lang="en">The core of this ODP is formed by the qualities, placed in a single hierarchy (the qualities are disjoint and the superclass is covered by them, like in the Value Partition ODP). Entities are linked to qualities by an object property, and a Qualifed Cardinality Restriction is used to express whether the quality is intrisic (exactly 1) or accidental (max 1). Also, qualities are limited to the entities to which they apply by an universal restriction (e.g. mitochondria do not regulate mitosis)</elements>
+        <result xml:lang="en">The entities and the qualities of those entities are properly separated, and which qualities apply to which entities is also expressed</result>
+        <implementation xml:lang="en">The first step is to create the qualities hierarchy, in the same way as the Value Partition ODP. Create the object property to link entities to qualities. Add the restriction [QualityCategory inv (HasQuality) only Entity] (this restricts the qualities to the entity). Add the restriction [EntityCategory HasQuality max 1 QualityCategory] or [EntityCategory HasQuality exactly 1 QualityCategory] (this restricts the entities to the qualities, max 1 in the case of accidental qualities and exactly 1 in the case of intrinsic qualities)</implementation>
+        <aim xml:lang="en">To model qualities without relying in a proliferation of object properties, as in the Entity-Property-Quality ODP</aim>
+        <side_effects xml:lang="en">it is very difficult to add sub-qualities. Cannot handle multi-aspect qualities</side_effects>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#apical -->
+
+    <owl:Class rdf:about="&Entity_Quality;apical">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;position"/>
+        <owl:disjointWith rdf:resource="&Entity_Quality;basal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#apical_complex -->
+
+    <owl:Class rdf:about="&Entity_Quality;apical_complex">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cellcycleontology.org/ontology/owl/CCO#has_quality"/>
+                <owl:onClass rdf:resource="&Entity_Quality;apical"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#basal -->
+
+    <owl:Class rdf:about="&Entity_Quality;basal">
+        <rdfs:label>basal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;position"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#basal_complex -->
+
+    <owl:Class rdf:about="&Entity_Quality;basal_complex">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cell -->
+
+    <owl:Class rdf:about="&Entity_Quality;cell">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cell_part -->
+
+    <owl:Class rdf:about="&Entity_Quality;cell_part">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cytoplasm -->
+
+    <owl:Class rdf:about="&Entity_Quality;cytoplasm">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#entity -->
+
+    <owl:Class rdf:about="&Entity_Quality;entity">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;EntityQualityDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#modifier -->
+
+    <owl:Class rdf:about="&Entity_Quality;modifier">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;EntityQualityDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#position -->
+
+    <owl:Class rdf:about="&Entity_Quality;position">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Entity_Quality;apical"/>
+                    <rdf:Description rdf:about="&Entity_Quality;basal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;modifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.cellcycleontology.org/ontology/owl/CCO#has_quality"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="&Entity_Quality;cell_part"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Adapted_SEP "http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Adapted_SEP="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;structure"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;sample"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;reference"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;also_known_as"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;elements"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;aim"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;name"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;result"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Adapted_SEP;classification"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#cellular_location_of -->
+
+    <owl:ObjectProperty rdf:about="&Adapted_SEP;cellular_location_of"/>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#part_of -->
+
+    <owl:ObjectProperty rdf:about="&Adapted_SEP;part_of">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#AdaptedSEPDomain -->
+
+    <owl:Class rdf:about="&Adapted_SEP;AdaptedSEPDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Adapted_SEP:structure xml:lang="en">../img/AdaptedSEP_abstract.png</Adapted_SEP:structure>
+        <Adapted_SEP:sample xml:lang="en">../img/AdaptedSEP_instance.png</Adapted_SEP:sample>
+        <Adapted_SEP:name xml:lang="en">Adapted SEP</Adapted_SEP:name>
+        <Adapted_SEP:reference xml:lang="en">Alan L Rector and Sebastian Brandt. Why do it the hard way? The Case for an Expressive Description Logic for SNOMED.  JAMIA (28 August 2008)</Adapted_SEP:reference>
+        <Adapted_SEP:classification xml:lang="en">Domain Modelling</Adapted_SEP:classification>
+        <Adapted_SEP:motivation xml:lang="en">In the biomedical domain the propagation of properties along the partonomy relation is very important. For example, there are cases where the fault of the part should be assumed to be a fault of the whole (an appendix perforation is an intestine perforation) and other cases where it should not be considered like that (appendicitis is not enteritis). The problem of propagating properties along partonomy relates directly to the problem of (for example) overloading PartOf in the Gene Ontology: for example Location, a property that should propagate along (or not) with PartOf , is always implicitly present anywhere there is a PartOf relation. For example Polarisome is PartOf  CellCortex and PartOf SiteOfPolarizedGrowth, inheriting both locations, creating a conflict: polarisome is not located in the whole of the cell cortex, is only located in the cell cortex in the site of polarised growth</Adapted_SEP:motivation>
+        <Adapted_SEP:reference xml:lang="en">Julian Seidenberg, Alan Rector. &quot;Representing transitive propagation in OWL&quot;. ER2006</Adapted_SEP:reference>
+        <Adapted_SEP:reference xml:lang="en">Stefan Shultz and Udo Hahn. Part-whole representation and reasoning in formal biomedical ontologies. Artificial Intelligence in Medicine, 34: 179-200, 2005</Adapted_SEP:reference>
+        <Adapted_SEP:elements xml:lang="en">The elements of the partonomy hierarchy are maintained and in this case two new elements are added to represent concrete locations in the cell (CellularLocationPole and CellularLocationPeriphery). The PartOf relationship is maintained (defined as transitive) and in this case a new object property is added to link locations with cellular components, CellularLocationOf</Adapted_SEP:elements>
+        <Adapted_SEP:result xml:lang="en">The location property CellularLocationOf is propagated along PartOf in a selective way, allowing for a precise and unambiguous definition of the polarisome location. To check the result two classes can be created: PolarisomeLocation [partial CellularLocationOf some Polarisome] and SiteOfPolarisedGrowthLocation [complete cellularLocationOf some (SiteOfPolarisedGrowth and PartOf some SiteOfPolarisedGrowth)]. After reasoning PolarisomeLocation should be a subclass of SiteOfPolarisedGrowthLocation</Adapted_SEP:result>
+        <Adapted_SEP:implementation xml:lang="en">The most important step is to define the class CellularLocationPoleOfGrowth as the location of SiteOfPolarizedGrowth or any of its parts, so the location is propagated to the parts (but it is not propagated in the case of CellCortex)</Adapted_SEP:implementation>
+        <Adapted_SEP:additional_information xml:lang="en">There have been different proposals in the literature for modelling transitive propagation in the biomedical domain. The approach chosen for this ODP relies on the possibility of creating transitive object properties given by OWL DL. Another approach is the one described by Stefan Shultz and Udo Hahn (see references), which relies in simulating the transitivity by creating SEP triples (Structure - Entity - Part) for each class of the partonomy hierarchy, allowing for selective inheritance of properties</Adapted_SEP:additional_information>
+        <Adapted_SEP:aim xml:lang="en">To model selective transitive propagation</Adapted_SEP:aim>
+        <Adapted_SEP:also_known_as xml:lang="en">Transitive propagator</Adapted_SEP:also_known_as>
+        <Adapted_SEP:reference xml:lang="en">http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/</Adapted_SEP:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#CellCortex -->
+
+    <owl:Class rdf:about="&Adapted_SEP;CellCortex">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Structure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#CellularLocationPeriphery -->
+
+    <owl:Class rdf:about="&Adapted_SEP;CellularLocationPeriphery">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;cellular_location_of"/>
+                <owl:someValuesFrom rdf:resource="&Adapted_SEP;CellCortex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#CellularLocationPoleOfGrowth -->
+
+    <owl:Class rdf:about="&Adapted_SEP;CellularLocationPoleOfGrowth">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;cellular_location_of"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Adapted_SEP;SiteOfPolarizedGrowth"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Adapted_SEP;part_of"/>
+                                <owl:someValuesFrom rdf:resource="&Adapted_SEP;SiteOfPolarizedGrowth"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#Location -->
+
+    <owl:Class rdf:about="&Adapted_SEP;Location">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;AdaptedSEPDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#Polarisome -->
+
+    <owl:Class rdf:about="&Adapted_SEP;Polarisome">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Structure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;part_of"/>
+                <owl:someValuesFrom rdf:resource="&Adapted_SEP;CellCortex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;part_of"/>
+                <owl:someValuesFrom rdf:resource="&Adapted_SEP;SiteOfPolarizedGrowth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#PolarisomeLocation -->
+
+    <owl:Class rdf:about="&Adapted_SEP;PolarisomeLocation">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;cellular_location_of"/>
+                <owl:someValuesFrom rdf:resource="&Adapted_SEP;Polarisome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#SiteOfPolarisedGrowthLocation -->
+
+    <owl:Class rdf:about="&Adapted_SEP;SiteOfPolarisedGrowthLocation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Adapted_SEP;cellular_location_of"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Adapted_SEP;SiteOfPolarizedGrowth"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Adapted_SEP;part_of"/>
+                                <owl:someValuesFrom rdf:resource="&Adapted_SEP;SiteOfPolarizedGrowth"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#SiteOfPolarizedGrowth -->
+
+    <owl:Class rdf:about="&Adapted_SEP;SiteOfPolarizedGrowth">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;Structure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl#Structure -->
+
+    <owl:Class rdf:about="&Adapted_SEP;Structure">
+        <rdfs:subClassOf rdf:resource="&Adapted_SEP;AdaptedSEPDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

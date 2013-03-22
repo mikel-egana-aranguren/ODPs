@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1344458174720" name="http://odps.sourceforge.net/odp/owl/Extension_ODP/Exception.owl" uri="Exception.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458174720" name="http://odps.sourceforge.net/odp/owl/Extension_ODP/Nary_Relationship.owl" uri="Nary_Relationship.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458174720" name="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl" uri="Nary_DataType_Relationship.owl"/>
+    </group>
+</catalog>

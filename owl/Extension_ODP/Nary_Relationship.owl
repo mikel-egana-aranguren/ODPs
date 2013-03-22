@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY odp "http://www.gong.manchester.ac.uk/odp/owl/odp.owl#" >
+    <!ENTITY Nary_Relationship2 "http://odps.sourceforge.net/odp/owl/Extension_ODP/Nary_Relationship.owl#" >
+    <!ENTITY NaryRelationship "http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/NaryRelationship.owl#" >
+    <!ENTITY Nary_Relationship "http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Extension_ODP/Nary_Relationship.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Extension_ODP/Nary_Relationship.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:NaryRelationship="http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/NaryRelationship.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:odp="http://www.gong.manchester.ac.uk/odp/owl/odp.owl#"
+     xmlns:Nary_Relationship2="http://odps.sourceforge.net/odp/owl/Extension_ODP/Nary_Relationship.owl#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:Nary_Relationship="http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_Relationship.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;reference"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;name"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;sample"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;result"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;aim"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship2;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;structure"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;elements"/>
+    <owl:AnnotationProperty rdf:about="&Nary_Relationship;classification"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#transports -->
+
+    <owl:ObjectProperty rdf:about="&Nary_Relationship;transports"/>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#transports_from -->
+
+    <owl:ObjectProperty rdf:about="&Nary_Relationship;transports_from"/>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#transports_to -->
+
+    <owl:ObjectProperty rdf:about="&Nary_Relationship;transports_to"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#CFTRGolgiToPlasmaTransport -->
+
+    <owl:Class rdf:about="&Nary_Relationship;CFTRGolgiToPlasmaTransport">
+        <rdfs:subClassOf rdf:resource="&Nary_Relationship;NaryRelationshipDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Nary_Relationship;transports_to"/>
+                <owl:someValuesFrom rdf:resource="&Nary_Relationship;PlasmaMembrane"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Nary_Relationship;transports_from"/>
+                <owl:someValuesFrom rdf:resource="&Nary_Relationship;Golgi"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Nary_Relationship;transports"/>
+                <owl:someValuesFrom rdf:resource="&Nary_Relationship;CFTRProtein"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#CFTRProtein -->
+
+    <owl:Class rdf:about="&Nary_Relationship;CFTRProtein">
+        <rdfs:subClassOf rdf:resource="&Nary_Relationship;NaryRelationshipDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#Golgi -->
+
+    <owl:Class rdf:about="&Nary_Relationship;Golgi">
+        <rdfs:subClassOf rdf:resource="&Nary_Relationship;NaryRelationshipDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#NaryRelationshipDomain -->
+
+    <owl:Class rdf:about="&Nary_Relationship;NaryRelationshipDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Nary_Relationship:structure xml:lang="en">../img/Nary_Relationship_abstract.png</Nary_Relationship:structure>
+        <Nary_Relationship:sample xml:lang="en">../img/Nary_Relationship_instance.png</Nary_Relationship:sample>
+        <Nary_Relationship:result xml:lang="en">After the reification a N-ary relationship is stated in the ontology</Nary_Relationship:result>
+        <Nary_Relationship:classification xml:lang="en">Extension</Nary_Relationship:classification>
+        <additional_information xml:lang="en">It could be argued that this is not really an ODP, as n-ary relationships in OWL do not exist, and, therefore, this would be a naming ODP instead of a semantic ODP, as the key of the pattern is how the class holding the alleged n-ary relationship is named</additional_information>
+        <Nary_Relationship:name xml:lang="en">Nary Relationship</Nary_Relationship:name>
+        <Nary_Relationship:reference xml:lang="en">Robert Stevens, Mikel Egana Aranguren, Katy Wolnstencroft, Ulrike Sattler, Nick Drummond and Mathew Horridge. Using OWL to Model Biological Knowledge. International Journal of Human Computer Studies 2006, 65:7, 583-594</Nary_Relationship:reference>
+        <Nary_Relationship:motivation xml:lang="en">The biomedical domain is full of situations were relationships should hold between more than one element, but OWL only allows to express properties linking two individuals at a time. There can be a situation where a relationship and some properties of that relationship must be modelled; that can not be done in a direct manner with OWL. For example, a diagnosis has a result, a probability, and the person who has been diagnosed; A catalytic reaction has got a substrate, some products, catalytic constants and it is catalysed by an enzyme</Nary_Relationship:motivation>
+        <Nary_Relationship:side_effects xml:lang="en">The class that holds the Nary relationship must have a clear name, because the maintainer must know that the class is not a proper class, otherwise the ontology becomes confusing. Therefore naming consistency should be maintained if different Nary relationships are created</Nary_Relationship:side_effects>
+        <Nary_Relationship:elements xml:lang="en">The original elements of the Nary Relationship are conserved in classes and a new class is reified to model the Nary Relationship, in this case a class called CFTRGolgiToPlasmaTransport. The relationships of each element to the reified class are created: TransportsFrom, TransportsTo and Transports</Nary_Relationship:elements>
+        <Nary_Relationship:implementation xml:lang="en">There is a Protege wizard available for easily creating N-ary Relationships</Nary_Relationship:implementation>
+        <Nary_Relationship:aim xml:lang="en">To express a relationship between more than one element. A Gene Ontology example can be found in the term GolgiToPlasmaMembrane CFTRproteinTransport, where there is a transport phenomenom which relates to three elements at the same time: the start (Golgi apparatus), the end (plasma membrane) and the transportee (CFTR protein). The transport relation can not be modelled in OWL pointing to the three elements, so this ODP must be applied</Nary_Relationship:aim>
+        <Nary_Relationship:reference xml:lang="en">http://www.co-ode.org/resources/tutorials/bio/</Nary_Relationship:reference>
+        <Nary_Relationship:reference xml:lang="en">http://www.w3.org/TR/swbp-n-aryRelations/</Nary_Relationship:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Nary_Relationship.owl#PlasmaMembrane -->
+
+    <owl:Class rdf:about="&Nary_Relationship;PlasmaMembrane">
+        <rdfs:subClassOf rdf:resource="&Nary_Relationship;NaryRelationshipDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

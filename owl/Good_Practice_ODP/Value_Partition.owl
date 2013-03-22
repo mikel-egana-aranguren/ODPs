@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Value_Partition "http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Value_Partition.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Value_Partition.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Value_Partition="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Value_Partition;aim"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;result"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;sample"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;classification"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;also_known_as"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;reference"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;elements"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;name"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Value_Partition;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#is_regulation_of_type -->
+
+    <owl:ObjectProperty rdf:about="&Value_Partition;is_regulation_of_type">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#Negative -->
+
+    <owl:Class rdf:about="&Value_Partition;Negative">
+        <rdfs:subClassOf rdf:resource="&Value_Partition;Regulation"/>
+        <owl:disjointWith rdf:resource="&Value_Partition;Positive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#Positive -->
+
+    <owl:Class rdf:about="&Value_Partition;Positive">
+        <rdfs:subClassOf rdf:resource="&Value_Partition;Regulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#PositiveRegulationOfCellKilling -->
+
+    <owl:Class rdf:about="&Value_Partition;PositiveRegulationOfCellKilling">
+        <rdfs:subClassOf rdf:resource="&Value_Partition;ValuePartitionDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Value_Partition;is_regulation_of_type"/>
+                <owl:someValuesFrom rdf:resource="&Value_Partition;Positive"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#Regulation -->
+
+    <owl:Class rdf:about="&Value_Partition;Regulation">
+        <rdfs:subClassOf rdf:resource="&Value_Partition;ValuePartitionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl#ValuePartitionDomain -->
+
+    <owl:Class rdf:about="&Value_Partition;ValuePartitionDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Value_Partition:structure xml:lang="en">../img/ValuePartition_abstract.png</Value_Partition:structure>
+        <Value_Partition:sample xml:lang="en">../img/ValuePartition_instance.png</Value_Partition:sample>
+        <Value_Partition:also_known_as xml:lang="en">Enumeration, if it is built using individuals instead of classes</Value_Partition:also_known_as>
+        <Value_Partition:classification xml:lang="en">Good Practice</Value_Partition:classification>
+        <Value_Partition:implementation xml:lang="en">Identify the attributes every element must be described with. For each attribute, create a class under Modifier (or the pertinent upper level distinction that it is used in the ontology). In each attribute class create a subclass for every value and make them disjoint. Create a covering axiom defining the attribute class. Create the restrictions pointing to the values of the Value Partition</Value_Partition:implementation>
+        <Value_Partition:motivation xml:lang="en">Reality is full of attributes of elements. For example, a person can be defined as being short, medium or tall, and the attribute height can just get those values. Height is said to be covered or exhausted by those values; the possible heights are only those three. Biology is full of such situations: metabolism can only be anabolism or catabolism, membrane transport can only be uniport, sinport or antiport, regulation is always positive, negative, and so forth</Value_Partition:motivation>
+        <Value_Partition:additional_information xml:lang="en">The Value Partition built with classes offers an advantage over the Enumeration (a Value Partition built with individuals): new subpartitions can be built for each of the value classes (e.g. very tall)</Value_Partition:additional_information>
+        <Value_Partition:result xml:lang="en">The attributes and the elements that are described or modified by the attributes get untangled: whenever a new element enters the domain (e.g. another regulation phenomenon) it is only a matter of adding a restriction pointing to the pertinent Value Partition class. The values that can be given to a certain attribute are constrained, enforcing a better modelling</Value_Partition:result>
+        <Value_Partition:elements xml:lang="en">The main elements are the classes that make up the Value Partition itself: a class for the attribute and the subclasses for the values. In this case, Regulation, Positive, and Negative, respectively. The most important relationship is the one that links each element of the knowledge domain with the values of the Value Partition. In this case, IsRegulationOfType (functional)</Value_Partition:elements>
+        <Value_Partition:aim xml:lang="en">To model values of attributes. In this example we model biological regulation, being negative or positive. PositiveRegulationOfCellKilling, from GO, is linked to the appropriate value</Value_Partition:aim>
+        <Value_Partition:name xml:lang="en">Value Partition</Value_Partition:name>
+        <Value_Partition:reference xml:lang="en">http://www.co-ode.org/resources/tutorials/bio/</Value_Partition:reference>
+        <Value_Partition:reference xml:lang="en">http://www.w3.org/TR/swbp-specified-values</Value_Partition:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

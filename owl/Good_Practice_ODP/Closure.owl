@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Closure "http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl"
+     xmlns:Closure="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Closure.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Closure;classification"/>
+    <owl:AnnotationProperty rdf:about="&Closure;elements"/>
+    <owl:AnnotationProperty rdf:about="&Closure;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Closure;aim"/>
+    <owl:AnnotationProperty rdf:about="&Closure;sample"/>
+    <owl:AnnotationProperty rdf:about="&Closure;structure"/>
+    <owl:AnnotationProperty rdf:about="&Closure;reference"/>
+    <owl:AnnotationProperty rdf:about="&Closure;result"/>
+    <owl:AnnotationProperty rdf:about="&Closure;name"/>
+    <owl:AnnotationProperty rdf:about="&Closure;implementation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#eats -->
+
+    <owl:ObjectProperty rdf:about="&Closure;eats"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#ClosureDomain -->
+
+    <owl:Class rdf:about="&Closure;ClosureDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <structure xml:lang="en">../img/Closure_abstract.png</structure>
+        <sample xml:lang="en">../img/Closure_instance.png</sample>
+        <reference xml:lang="en">Alan Rector, Nick Drummond, Matthew Horridge, Jeremy Rogers, Holger Knublauch,  Robert Stevens, Hai Wang, Chris Wroe. OWL Pizzas: Practical Experience of Teaching OWL-DL: Common Errors and Common Patterns. In Proceedings of  the European Conference on Knowledge Acquistion, 2004. LNCS- LNAI 3257, Springer-Verlag.pp 63-81</reference>
+        <name xml:lang="en">Closure</name>
+        <reference xml:lang="en">Explicit Knowledge Engineering Patterns with Macros. Denny Vrandecic.
+In Proceedings of the Ontology Patterns for the Semantic Web Workshop (ISWC 2005)</reference>
+        <classification xml:lang="en">Good Practice</classification>
+        <motivation xml:lang="en">OWL sometimes is anti-intuitive due to the Open World Assumption. One of the examples of such problem is the fact that plenty of users think that asserting an existential restriction is enough to close a relationship, when in fact a universal restriction is also needed: it is not enough to say that carnivore eats some meat, as that is equivalent to saying that it can eat another things apart of meat</motivation>
+        <aim xml:lang="en">Simulate the closed world assumption in a concrete class</aim>
+        <result xml:lang="en">The closure axiom allows to close the world and express that something has got a property and only that property. For example, following the example, without the closure (without the universal restriction) carnivore and herbivore would appear as subclasses of omnivore. However, with the closure axiom, they do not</result>
+        <elements xml:lang="en">The only element to take into account is the object property that will be used to produce the closure</elements>
+        <implementation xml:lang="en">The only necessary step is to add an existential restriction and an universal restriction with the same filler</implementation>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#animal -->
+
+    <owl:Class rdf:about="&Closure;animal">
+        <rdfs:subClassOf rdf:resource="&Closure;ClosureDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#animal_wrong -->
+
+    <owl:Class rdf:about="&Closure;animal_wrong">
+        <rdfs:subClassOf rdf:resource="&Closure;ClosureDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#carnivore -->
+
+    <owl:Class rdf:about="&Closure;carnivore">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:someValuesFrom rdf:resource="&Closure;meat"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:allValuesFrom rdf:resource="&Closure;meat"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Closure;animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#herbivore -->
+
+    <owl:Class rdf:about="&Closure;herbivore">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:someValuesFrom rdf:resource="&Closure;veg"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:allValuesFrom rdf:resource="&Closure;veg"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Closure;animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#meat -->
+
+    <owl:Class rdf:about="&Closure;meat">
+        <rdfs:subClassOf rdf:resource="&Closure;ClosureDomain"/>
+        <owl:disjointWith rdf:resource="&Closure;veg"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#omnivore -->
+
+    <owl:Class rdf:about="&Closure;omnivore">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:someValuesFrom rdf:resource="&Closure;meat"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Closure;eats"/>
+                        <owl:someValuesFrom rdf:resource="&Closure;veg"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Closure;animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#veg -->
+
+    <owl:Class rdf:about="&Closure;veg">
+        <rdfs:subClassOf rdf:resource="&Closure;ClosureDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#wrong_carnivore -->
+
+    <owl:Class rdf:about="&Closure;wrong_carnivore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Closure;eats"/>
+                <owl:someValuesFrom rdf:resource="&Closure;meat"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Closure;animal_wrong"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl#wrong_herbivore -->
+
+    <owl:Class rdf:about="&Closure;wrong_herbivore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Closure;eats"/>
+                <owl:someValuesFrom rdf:resource="&Closure;veg"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Closure;animal_wrong"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

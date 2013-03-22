@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1344458132373" name="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Adapted_SEP.owl" uri="Adapted_SEP.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458132373" name="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl" uri="CompositePropertyChain.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458132373" name="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/List.owl" uri="List.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458132373" name="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl" uri="Sequence.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458132373" name="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl" uri="Interactor_Role_Interaction.owl"/>
+    </group>
+</catalog>

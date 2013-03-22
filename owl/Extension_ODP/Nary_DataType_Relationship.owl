@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Nary_DataType_Relationship0 "http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#"
+     xml:base="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Nary_DataType_Relationship0="http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;related_ODPs"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;sample"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;structure"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;aim"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;reference"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;result"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;elements"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;classification"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Nary_DataType_Relationship0;name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#integer -->
+
+    <rdfs:Datatype rdf:about="&xsd;integer"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <rdfs:Datatype rdf:about="&xsd;string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#has_boiling_point -->
+
+    <owl:ObjectProperty rdf:about="&Nary_DataType_Relationship0;has_boiling_point">
+        <rdfs:label>has_boiling_point</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_unit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_unit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_unit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_unit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#NaryDataTypeRelationshipDomain -->
+
+    <owl:Class rdf:about="&Nary_DataType_Relationship0;NaryDataTypeRelationshipDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Nary_DataType_Relationship0:structure xml:lang="en">../img/Nary_DataType_Relationship_abstract.png</Nary_DataType_Relationship0:structure>
+        <Nary_DataType_Relationship0:sample xml:lang="en">../img/Nary_DataType_Relationship_instance.png</Nary_DataType_Relationship0:sample>
+        <Nary_DataType_Relationship0:result xml:lang="en">After the reification a value with different aspects is represented in the ontology</Nary_DataType_Relationship0:result>
+        <Nary_DataType_Relationship0:reference xml:lang="en">Bijan Parsia and Michael Smith. Quantities in OWL. OWLed 2008 EU</Nary_DataType_Relationship0:reference>
+        <Nary_DataType_Relationship0:classification xml:lang="en">Extension</Nary_DataType_Relationship0:classification>
+        <Nary_DataType_Relationship0:name xml:lang="en">Nary DataType Relationship</Nary_DataType_Relationship0:name>
+        <Nary_DataType_Relationship0:related_ODPs xml:lang="en">Nary Relationship</Nary_DataType_Relationship0:related_ODPs>
+        <Nary_DataType_Relationship0:motivation xml:lang="en">Numerical values can have different aspects. For example, a boiling point has a temperature value, a pressure, etc. This simple ODP should be used to model those cases</Nary_DataType_Relationship0:motivation>
+        <Nary_DataType_Relationship0:implementation xml:lang="en">The first step is to choose the datatype value that needs to be reified and create a class for it (e.g. StandardWaterBoilingPoint), then add a restriction (e.g. [Water HasBoilingPoint some StandardWaterBoilingPoint]) and all the neccesary datatype properties and restrictions to the reified class (e.g. [StandardWaterBoilingPoint partial HasUnit value celsius], [StandardWaterBoilingPoint partial  HasValue value 100], etc.)</Nary_DataType_Relationship0:implementation>
+        <Nary_DataType_Relationship0:elements xml:lang="en">The original value is reified (decomposed) in all the neccesary data type properties and values</Nary_DataType_Relationship0:elements>
+        <Nary_DataType_Relationship0:aim xml:lang="en">To represent a datatype value with more than one aspect</Nary_DataType_Relationship0:aim>
+        <Nary_DataType_Relationship0:reference xml:lang="en">http://www.cs.man.ac.uk/~stevensr/menupages/ontologies.php</Nary_DataType_Relationship0:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#point -->
+
+    <owl:Class rdf:about="&Nary_DataType_Relationship0;point">
+        <rdfs:label>point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Nary_DataType_Relationship0;NaryDataTypeRelationshipDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#standard_water_boiling_point -->
+
+    <owl:Class rdf:about="&Nary_DataType_Relationship0;standard_water_boiling_point">
+        <rdfs:subClassOf rdf:resource="&Nary_DataType_Relationship0;point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_unit"/>
+                <owl:hasValue>Celsius</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#temperature_value"/>
+                <owl:hasValue rdf:datatype="&xsd;integer">100</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_value"/>
+                <owl:hasValue rdf:datatype="&xsd;integer">1</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_unit"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Nary_DataType_Relationship.owl#pressure_unit"/>
+                <owl:hasValue>Atm</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Extensional_ODP/Nary_DataType_Relationship.owl#water -->
+
+    <owl:Class rdf:about="&Nary_DataType_Relationship0;water">
+        <rdfs:label>water</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Nary_DataType_Relationship0;NaryDataTypeRelationshipDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Nary_DataType_Relationship0;has_boiling_point"/>
+                <owl:someValuesFrom rdf:resource="&Nary_DataType_Relationship0;standard_water_boiling_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DefinitionDescrition "http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#" >
+    <!ENTITY DefinedClass_Description "http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:DefinitionDescrition="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:DefinedClass_Description="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;classification"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;sample"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;result"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;elements"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;aim"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;reference"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;name"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;structure"/>
+    <owl:AnnotationProperty rdf:about="&DefinedClass_Description;motivation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#eats -->
+
+    <owl:ObjectProperty rdf:about="&DefinitionDescrition;eats"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#vision -->
+
+    <owl:ObjectProperty rdf:about="&DefinitionDescrition;vision"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#Frontal -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;Frontal">
+        <rdfs:subClassOf rdf:resource="&DefinitionDescrition;VisionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#FrontalVisionAnimal -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;FrontalVisionAnimal">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DefinitionDescrition;vision"/>
+                <owl:someValuesFrom rdf:resource="&DefinitionDescrition;Frontal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DefinedClass_Description;DefinedClass_DescriptionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#Lion -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;Lion">
+        <rdfs:subClassOf rdf:resource="&DefinedClass_Description;DefinedClass_DescriptionDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DefinitionDescrition;eats"/>
+                <owl:someValuesFrom rdf:resource="&DefinitionDescrition;Prey"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#Organism -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;Organism">
+        <rdfs:subClassOf rdf:resource="&DefinedClass_Description;DefinedClass_DescriptionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#Predator -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;Predator">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DefinitionDescrition;eats"/>
+                <owl:someValuesFrom rdf:resource="&DefinitionDescrition;Prey"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DefinitionDescrition;Organism"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DefinitionDescrition;vision"/>
+                <owl:someValuesFrom rdf:resource="&DefinitionDescrition;Frontal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#Prey -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;Prey">
+        <rdfs:subClassOf rdf:resource="&DefinitionDescrition;Organism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/DefinitionDescrition.owl#VisionType -->
+
+    <owl:Class rdf:about="&DefinitionDescrition;VisionType">
+        <rdfs:subClassOf rdf:resource="&DefinedClass_Description;DefinedClass_DescriptionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl#DefinedClass_DescriptionDomain -->
+
+    <owl:Class rdf:about="&DefinedClass_Description;DefinedClass_DescriptionDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <structure xml:lang="en">../img/DefinedClass_Description_abstract.png</structure>
+        <sample xml:lang="en">../img/DefinedClass_Description_instance.png</sample>
+        <reference xml:lang="en">Alan Rector, Nick Drummond, Matthew Horridge, Jeremy Rogers, Holger Knublauch,  Robert Stevens, Hai Wang, Chris Wroe. OWL Pizzas: Practical Experience of Teaching OWL-DL: Common Errors and Common Patterns. In Proceedings of  the European Conference on Knowledge Acquistion, 2004. LNCS- LNAI 3257, Springer-Verlag.pp 63-81</reference>
+        <name xml:lang="en">Defined Class Description</name>
+        <classification xml:lang="en">Good Practice</classification>
+        <motivation xml:lang="en">If-Then structures are very common and intuitive and this ODP offers the possibility of representing them within OWL DL expressivity</motivation>
+        <result xml:lang="en">The If-Then rule is represented in the ontology and can be used, for example, when adding new classes and performing reasoning: if a class fulfill the If condition, it will have also the Then attribute</result>
+        <aim xml:lang="en">To simulate an If-Then of the type: if something fullfills certain conditions, it should have a further given attribute</aim>
+        <elements xml:lang="en">the important elements are the class that is being used to simulate the rule and the properties that are used in the condition (the equivalent restrictions) and the conclusion (the neccesary restrictions)</elements>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

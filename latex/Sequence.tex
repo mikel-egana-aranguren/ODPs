@@ -1,0 +1,26 @@
+ \section{Sequence ODP}\begin{description}
+\item [CLASSIFICATION:] Domain Modelling.
+
+\item [MOTIVATION:] In biological knowledge there are events that happen one after the other in a single related sequence, such as the cell cycle. Sometimes the only important thing is what happens after or before a concrete event, without the concrete order of all the events (in that case we would need the List ODP, for example to compare different sequences of events).
+
+\item [AIM:] To model a sequence of events, one after the other.
+
+\item [STRUCTURE:] See Figure \ref{odp:Sequence_abstract}.
+\begin{figure}[]\centering\includegraphics[width=\textwidth]{Catalogue/Sequence_abstract}\caption{\label{odp:Sequence_abstract} Abstract structure of the Sequence ODP.}\end{figure}
+
+\item [SAMPLE:] See Figure \ref{odp:Sequence_instance}.
+\begin{figure}[]\centering\includegraphics[width=\textwidth]{Catalogue/Sequence_instance}\caption{\label{odp:Sequence_instance} Sample structure of the Sequence ODP.}\end{figure}
+
+\item [ELEMENTS:] The elements of this ODP are the classes that make up the sequence (in this case the phases of the cell cycle, thus G1, S, G2, M) and the four properties Precedes (transitive), ImmediatelyPrecedes (subproperty of Precedes, functional) PrecededBy (transitive) and ImmediatelyPrecededBy (subproperty of PrecededBy, functional).
+
+\item [IMPLEMENTATION:] The sequence is created by adding restrictions in the properties ImmediatelyPrecededBy and ImmediatelyPrecedes for each phase, except in the last one (only ImmediatelyPrecededBy) and the first one (only ImediatelyPrecedes).
+
+\item [RESULT:] The sequence of events is codified creating an structure that can be queried with queries such as [OccursAt some (PrecededBy some S)], if we want anything that happens after S, or [OccursAt some (ImmediatelyPrecededBy some S)], if we want to know what happens right after S but not later (thus not G2 or M).
+
+\item [RELATED ODPS:] List ODP, AdaptedSEP ODP.
+
+\item [ADDITIONAL INFORMATION:] in theory only ImmediatelyPrecedes relationships should be asserted and the reasoner should infer the inverse relationship, but it does not work for the superproperty of the inverse. Also, for the inverse to work properly some kind of closure (onlysome) or defined classes are needed.
+
+\item [REFERENCES: ] ~\begin{itemize}
+\item \url{http://www.cellcycleontology.org}\end{itemize}
+\item [URL: ] \url{http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl} \end{description}

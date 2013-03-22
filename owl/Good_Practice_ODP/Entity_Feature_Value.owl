@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Entity_Quality "http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#"
+     xml:base="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Entity_Quality="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;structure"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;elements"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;aim"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;sample"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;name"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;result"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;classification"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Entity_Quality;reference"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_feature -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_feature"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_orientation -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_orientation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#orientation"/>
+        <rdfs:domain rdf:resource="&Entity_Quality;feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_state -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_state">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#state"/>
+        <rdfs:domain rdf:resource="&Entity_Quality;feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_value -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&Entity_Quality;feature"/>
+        <rdfs:range rdf:resource="&Entity_Quality;position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#orientation"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#basal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical_complex_position -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical_complex_position">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_value"/>
+                <owl:someValuesFrom rdf:resource="&Entity_Quality;peripheral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_state"/>
+                <owl:someValuesFrom rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#fixed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_orientation"/>
+                <owl:someValuesFrom rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#basal -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#basal">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#orientation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#changing -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#changing">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#state"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#fixed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#fixed -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#fixed">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#state"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#orientation -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#orientation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical"/>
+                    <rdf:Description rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#basal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#state -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#state">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#changing"/>
+                    <rdf:Description rdf:about="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#fixed"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#EntityFeatureValueDomain -->
+
+    <owl:Class rdf:about="&Entity_Quality;EntityFeatureValueDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Entity_Quality:structure xml:lang="en">../img/EntityFeatureValue_abstract.png</Entity_Quality:structure>
+        <Entity_Quality:sample xml:lang="en">../img/EntityFeatureValue_instance.png</Entity_Quality:sample>
+        <Entity_Quality:reference xml:lang="en">A. Gangemi, N. Guarino, C. Masolo, A. Oltramari and L. Schneider. Sweetening
+ontologies with dolce. In: LNCS, EKAW. (2002) 166-182</Entity_Quality:reference>
+        <Entity_Quality:reference xml:lang="en">Alan Rector (Personal Communication)</Entity_Quality:reference>
+        <Entity_Quality:side_effects xml:lang="en">Although this ODP can obviously handle multi aspect qualities, it is difficult to author because of the amount of entities that need to be added</Entity_Quality:side_effects>
+        <Entity_Quality:name xml:lang="en">Entity-Feature-Value</Entity_Quality:name>
+        <Entity_Quality:implementation xml:lang="en">For each aspect of the feature, an object property and a value partition should be created. For each of them, the domain should be the class Feature and the range the aspect value. The feature is really an Nary relationship ODP, and it is linked to each aspect by existential restrictions. The entity is linked to the feature with a Qualified Cardinality Restriction (QCR) of exactly one</Entity_Quality:implementation>
+        <Entity_Quality:classification xml:lang="en">Good Practice</Entity_Quality:classification>
+        <Entity_Quality:reference xml:lang="en">Mikel Egana, Alan Rector, Robert Stevens and Erick Antezana. Applying Ontology Design Patterns in bio-ontologies. EKAW 2008. LNCS 5268, pp. 7-16, 2008</Entity_Quality:reference>
+        <Entity_Quality:additional_information xml:lang="en">See also the Entity-Quality ODP and the Entity-Property-Value ODP</Entity_Quality:additional_information>
+        <Entity_Quality:result xml:lang="en">The entities, que features of those entities and the aspects of the features are properly separated</Entity_Quality:result>
+        <Entity_Quality:elements xml:lang="en">The most important elements are the object properties (one for each aspect), the feature, and the values of the aspects</Entity_Quality:elements>
+        <Entity_Quality:motivation xml:lang="en">This ODP is used to represent modifiers with multiple aspects, thus features (e.g. colour with a certain brightness and saturation)</Entity_Quality:motivation>
+        <Entity_Quality:aim xml:lang="en">To model features with the simplest structure possible</Entity_Quality:aim>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#apical_complex -->
+
+    <owl:Class rdf:about="&Entity_Quality;apical_complex">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#has_feature"/>
+                <owl:onClass rdf:resource="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl#apical_complex_position"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#basal_complex -->
+
+    <owl:Class rdf:about="&Entity_Quality;basal_complex">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cell -->
+
+    <owl:Class rdf:about="&Entity_Quality;cell">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cell_part -->
+
+    <owl:Class rdf:about="&Entity_Quality;cell_part">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#central -->
+
+    <owl:Class rdf:about="&Entity_Quality;central">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;position"/>
+        <owl:disjointWith rdf:resource="&Entity_Quality;peripheral"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#cytoplasm -->
+
+    <owl:Class rdf:about="&Entity_Quality;cytoplasm">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;cell_part"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#entity -->
+
+    <owl:Class rdf:about="&Entity_Quality;entity">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;EntityFeatureValueDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#feature -->
+
+    <owl:Class rdf:about="&Entity_Quality;feature">
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;EntityFeatureValueDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#peripheral -->
+
+    <owl:Class rdf:about="&Entity_Quality;peripheral">
+        <rdfs:label>basal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;position"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl#position -->
+
+    <owl:Class rdf:about="&Entity_Quality;position">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Entity_Quality;central"/>
+                    <rdf:Description rdf:about="&Entity_Quality;peripheral"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Entity_Quality;feature"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

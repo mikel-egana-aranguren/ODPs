@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Sequence2 "http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#" >
+    <!ENTITY Sequence "http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:Sequence2="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#"
+     xmlns:Sequence="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Sequence2;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;sample"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;result"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;related_ODPs"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;classification"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;elements"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;structure"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;aim"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;name"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;reference"/>
+    <owl:AnnotationProperty rdf:about="&Sequence;implementation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#inmediately_preceded_by -->
+
+    <owl:ObjectProperty rdf:about="&Sequence2;inmediately_preceded_by">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&Sequence;preceded_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#inmediately_precedes -->
+
+    <owl:ObjectProperty rdf:about="&Sequence2;inmediately_precedes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&Sequence;precedes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#occurs_at -->
+
+    <owl:ObjectProperty rdf:about="&Sequence;occurs_at"/>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#preceded_by -->
+
+    <owl:ObjectProperty rdf:about="&Sequence;preceded_by">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#precedes -->
+
+    <owl:ObjectProperty rdf:about="&Sequence;precedes">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#Interaction2 -->
+
+    <owl:Class rdf:about="&Sequence2;Interaction2">
+        <rdfs:subClassOf rdf:resource="&Sequence;SequenceDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence;occurs_at"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;G2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Sequence.owl#query2 -->
+
+    <owl:Class rdf:about="&Sequence2;query2">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence;occurs_at"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Sequence2;inmediately_preceded_by"/>
+                        <owl:someValuesFrom rdf:resource="&Sequence;S"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Sequence;SequenceDomain"/>
+        <rdfs:comment>Right after S, thus only G2</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#CellCycle -->
+
+    <owl:Class rdf:about="&Sequence;CellCycle">
+        <rdfs:subClassOf rdf:resource="&Sequence;SequenceDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#G1 -->
+
+    <owl:Class rdf:about="&Sequence;G1">
+        <rdfs:subClassOf rdf:resource="&Sequence;CellCycle"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_preceded_by"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;M"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_precedes"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;S"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&Sequence;G2"/>
+        <owl:disjointWith rdf:resource="&Sequence;M"/>
+        <owl:disjointWith rdf:resource="&Sequence;S"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#G2 -->
+
+    <owl:Class rdf:about="&Sequence;G2">
+        <rdfs:subClassOf rdf:resource="&Sequence;CellCycle"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_preceded_by"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;S"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_precedes"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;M"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&Sequence;M"/>
+        <owl:disjointWith rdf:resource="&Sequence;S"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#Interaction -->
+
+    <owl:Class rdf:about="&Sequence;Interaction">
+        <rdfs:subClassOf rdf:resource="&Sequence;SequenceDomain"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence;occurs_at"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;M"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#M -->
+
+    <owl:Class rdf:about="&Sequence;M">
+        <rdfs:subClassOf rdf:resource="&Sequence;CellCycle"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_precedes"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;G1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_preceded_by"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;G2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&Sequence;S"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#S -->
+
+    <owl:Class rdf:about="&Sequence;S">
+        <rdfs:subClassOf rdf:resource="&Sequence;CellCycle"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_preceded_by"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;G1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence2;inmediately_precedes"/>
+                <owl:someValuesFrom rdf:resource="&Sequence;G2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#SequenceDomain -->
+
+    <owl:Class rdf:about="&Sequence;SequenceDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Sequence:structure xml:lang="en">../img/Sequence_abstract.png</Sequence:structure>
+        <Sequence:sample xml:lang="en">../img/Sequence_instance.png</Sequence:sample>
+        <Sequence:classification xml:lang="en">Domain Modelling</Sequence:classification>
+        <Sequence:motivation xml:lang="en">In biological knowledge there are events that happen one after the other in a single related sequence, such as the cell cycle. Sometimes the only important thing is what happens after or before a concrete event, without the concrete order of all the events (in that case we would need the List ODP, for example to compare different sequences of events)</Sequence:motivation>
+        <Sequence:related_ODPs xml:lang="en">List ODP, AdaptedSEP ODP</Sequence:related_ODPs>
+        <Sequence:name xml:lang="en">Sequence</Sequence:name>
+        <Sequence:elements xml:lang="en">The elements of this ODP are the classes that make up the sequence (in this case the phases of the cell cycle, thus G1, S, G2, M) and the four properties Precedes (transitive), ImmediatelyPrecedes (subproperty of Precedes, functional) PrecededBy (transitive) and ImmediatelyPrecededBy (subproperty of PrecededBy, functional)</Sequence:elements>
+        <Sequence:implementation xml:lang="en">The sequence is created by adding restrictions in the properties ImmediatelyPrecededBy and ImmediatelyPrecedes for each phase, except in the last one (only ImmediatelyPrecededBy) and the first one (only ImediatelyPrecedes)</Sequence:implementation>
+        <Sequence:result xml:lang="en">The sequence of events is codified creating an structure that can be queried with queries such as [OccursAt some (PrecededBy some S)], if we want anything that happens after S, or [OccursAt some (ImmediatelyPrecededBy some S)], if we want to know what happens right after S but not later (thus not G2 or M)</Sequence:result>
+        <Sequence:aim xml:lang="en">To model a sequence of events, one after the other</Sequence:aim>
+        <Sequence:reference xml:lang="en">http://www.cellcycleontology.org</Sequence:reference>
+        <additional_information xml:lang="en">in theory only ImmediatelyPrecedes relationships should be asserted and the reasoner should infer the inverse relationship, but it does not work for the superproperty of the inverse. Also, for the inverse to work properly some kind of closure (onlysome) or defined classes are needed</additional_information>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Sequence.owl#query -->
+
+    <owl:Class rdf:about="&Sequence;query">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Sequence;occurs_at"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Sequence;preceded_by"/>
+                        <owl:someValuesFrom rdf:resource="&Sequence;G1"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Sequence;SequenceDomain"/>
+        <rdfs:comment>Anything that occurs after G1 (M,G2,S)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

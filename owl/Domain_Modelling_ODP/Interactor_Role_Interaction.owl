@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY interaction2 "http://odps.sourceforge.net/interaction2.owl#" >
+    <!ENTITY Interactor_Role_Interaction0 "http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl#"
+     xml:base="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:interaction2="http://odps.sourceforge.net/interaction2.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Interactor_Role_Interaction0="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;elements"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;aim"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;name"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;reference"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;result"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;sample"/>
+    <owl:AnnotationProperty rdf:about="&interaction2;IntAct"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;classification"/>
+    <owl:AnnotationProperty rdf:about="&Interactor_Role_Interaction0;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#has_participant -->
+
+    <owl:ObjectProperty rdf:about="&interaction2;has_participant"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#has_role -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#role_in_interaction -->
+
+    <owl:ObjectProperty rdf:about="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#brca2 -->
+
+    <owl:Class rdf:about="&interaction2;brca2">
+        <rdfs:subClassOf rdf:resource="&interaction2;protein"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#bait"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;fancd2-brca2-1"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#prey"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;brca2_rad51_9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&interaction2;fancd2"/>
+        <owl:disjointWith rdf:resource="&interaction2;rad51"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#brca2_rad51_9 -->
+
+    <owl:Class rdf:about="&interaction2;brca2_rad51_9">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/interaction3.owl#phosphorilation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:onClass rdf:resource="&interaction2;rad51"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&interaction2;brca2"/>
+                            <rdf:Description rdf:about="&interaction2;rad51"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:onClass rdf:resource="&interaction2;brca2"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#domain -->
+
+    <owl:Class rdf:about="&interaction2;domain">
+        <rdfs:subClassOf rdf:resource="&Interactor_Role_Interaction0;InteractorRoleInteractionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#entity -->
+
+    <owl:Class rdf:about="&interaction2;entity">
+        <rdfs:subClassOf rdf:resource="&interaction2;domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#fancd2 -->
+
+    <owl:Class rdf:about="&interaction2;fancd2">
+        <rdfs:subClassOf rdf:resource="&interaction2;protein"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#prey"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;fancd2-brca2-1"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&interaction2;rad51"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#fancd2-brca2-1 -->
+
+    <owl:Class rdf:about="&interaction2;fancd2-brca2-1">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/interaction3.owl#physical_interaction"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:onClass rdf:resource="&interaction2;fancd2"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&interaction2;brca2"/>
+                            <rdf:Description rdf:about="&interaction2;fancd2"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&interaction2;has_participant"/>
+                <owl:onClass rdf:resource="&interaction2;brca2"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#interaction -->
+
+    <owl:Class rdf:about="&interaction2;interaction">
+        <rdfs:subClassOf rdf:resource="&interaction2;process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#process -->
+
+    <owl:Class rdf:about="&interaction2;process">
+        <rdfs:subClassOf rdf:resource="&interaction2;domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#protein -->
+
+    <owl:Class rdf:about="&interaction2;protein">
+        <rdfs:subClassOf rdf:resource="&interaction2;entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#query -->
+
+    <owl:Class rdf:about="&interaction2;query">
+        <rdfs:subClassOf rdf:resource="&Interactor_Role_Interaction0;InteractorRoleInteractionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#query_1 -->
+
+    <owl:Class rdf:about="&interaction2;query_1">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#role"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;fancd2-brca2-1"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#query_2 -->
+
+    <owl:Class rdf:about="&interaction2;query_2">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#role"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;brca2_rad51_9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#query_3 -->
+
+    <owl:Class rdf:about="&interaction2;query_3">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom rdf:resource="http://odps.sourceforge.net/interaction3.owl#prey"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction2.owl#rad51 -->
+
+    <owl:Class rdf:about="&interaction2;rad51">
+        <rdfs:subClassOf rdf:resource="&interaction2;protein"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#bait"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;brca2_rad51_9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#bait -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#bait">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/interaction3.owl#role"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/interaction3.owl#neutral_component"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/interaction3.owl#prey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#neutral_component -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#neutral_component">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/interaction3.owl#role"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/interaction3.owl#prey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#phosphorilation -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#phosphorilation">
+        <rdfs:label>phosphorilation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&interaction2;interaction"/>
+        <owl:disjointWith rdf:resource="http://odps.sourceforge.net/interaction3.owl#physical_interaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#physical_interaction -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#physical_interaction">
+        <rdfs:label>physical_interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&interaction2;interaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#prey -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#prey">
+        <rdfs:subClassOf rdf:resource="http://odps.sourceforge.net/interaction3.owl#role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#query_4 -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#query_4">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom rdf:resource="http://odps.sourceforge.net/interaction3.owl#bait"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#query_5 -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#query_5">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#bait"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;brca2_rad51_9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#query_6 -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#query_6">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#has_role"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://odps.sourceforge.net/interaction3.owl#prey"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://odps.sourceforge.net/interaction3.owl#role_in_interaction"/>
+                                <owl:allValuesFrom rdf:resource="&interaction2;brca2_rad51_9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&interaction2;query"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/interaction3.owl#role -->
+
+    <owl:Class rdf:about="http://odps.sourceforge.net/interaction3.owl#role">
+        <rdfs:subClassOf rdf:resource="&interaction2;process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Interactor_Role_Interaction.owl#InteractorRoleInteractionDomain -->
+
+    <owl:Class rdf:about="&Interactor_Role_Interaction0;InteractorRoleInteractionDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Interactor_Role_Interaction0:structure xml:lang="en">../img/Interactor_Role_Interaction_abstract.png</Interactor_Role_Interaction0:structure>
+        <Interactor_Role_Interaction0:sample xml:lang="en">../img/Interactor_Role_Interaction_instance.png</Interactor_Role_Interaction0:sample>
+        <Interactor_Role_Interaction0:classification xml:lang="en">Domain Modelling</Interactor_Role_Interaction0:classification>
+        <Interactor_Role_Interaction0:name xml:lang="en">Interactor Role Interaction</Interactor_Role_Interaction0:name>
+        <Interactor_Role_Interaction0:motivation xml:lang="en">Protein Protein Interactions (PPI) are the base for most of the biological processes at a molecular level. For example (http://www.ebi.ac.uk/intact/binary-search/faces/search.xhtml?query=BRCA2)</Interactor_Role_Interaction0:motivation>
+        <Interactor_Role_Interaction0:additional_information xml:lang="en">See also the following paper: M. Dumontier. Biological situational modeling: Defining Molecular Roles in Pathways and Reactions. 2008. OWL Experiences and Design (OWLED-EU 2008)</Interactor_Role_Interaction0:additional_information>
+        <Interactor_Role_Interaction0:result xml:lang="en">The participation events and the role with which interactors participate in concrete interactions are decoupled. Also, each interaction has a given set of interactors and not more</Interactor_Role_Interaction0:result>
+        <Interactor_Role_Interaction0:implementation xml:lang="en">The three object properties must be created first (HasRole, RoleInInteraction and HasParticipant). Each interaction bears a closure, so apart of an axiom [HasParticipant exactly 1 InteractorX], an axiom of the type [HasParticipant only (Interactor1 or InteractorN)] should be used. For each interactor, add an axiom of the type [HasRole some (Role and RoleInInteraction Interaction), so queries can be decomposed for roles or participation in interactions, or participations in interactions with certain roles</Interactor_Role_Interaction0:implementation>
+        <Interactor_Role_Interaction0:elements xml:lang="en">Three object properties are needed: HasRole, RoleInInteraction, and HasParticipant. This ODP has got two aims: close the interactors an interaction can have, and decouple roles from interactions. An interaction is a unique combination of interactors and roles, whereas an interactor can have at the same time many roles and participate in many different interactions (but never with different roles in the same interaction)</Interactor_Role_Interaction0:elements>
+        <Interactor_Role_Interaction0:aim xml:lang="en">To model different interactions where the interactors can have different roles</Interactor_Role_Interaction0:aim>
+        <Interactor_Role_Interaction0:reference xml:lang="en">http://odps.sourceforge.net</Interactor_Role_Interaction0:reference>
+        <Interactor_Role_Interaction0:reference xml:lang="en">http://www.cellcycleontology.org/</Interactor_Role_Interaction0:reference>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

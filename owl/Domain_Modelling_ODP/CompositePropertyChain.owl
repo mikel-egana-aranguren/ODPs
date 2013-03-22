@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Property_Partition "http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:Property_Partition="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Property_Partition;result"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;elements"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;name"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;sample"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;aim"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;classification"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;reference"/>
+    <owl:AnnotationProperty rdf:about="&Property_Partition;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#family_rel -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;family_rel"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#has_brother -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;has_brother">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;family_rel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#has_cousin -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;has_cousin">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;family_rel"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Property_Partition;has_uncle"/>
+            <rdf:Description rdf:about="&Property_Partition;has_son"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#has_father -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;has_father">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;family_rel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#has_son -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;has_son">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;family_rel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#has_uncle -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;has_uncle">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;family_rel"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Property_Partition;has_father"/>
+            <rdf:Description rdf:about="&Property_Partition;has_brother"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#oxidation -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;oxidation">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;protein_modification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#oxidation_phosphorilation -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;oxidation_phosphorilation">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;protein_modification"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Property_Partition;oxidation"/>
+            <rdf:Description rdf:about="&Property_Partition;phosphorilation"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#oxidation_phosphorilation_sulfation -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;oxidation_phosphorilation_sulfation">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;protein_modification"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Property_Partition;oxidation_phosphorilation"/>
+            <rdf:Description rdf:about="&Property_Partition;sulfation"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#phosphorilation -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;phosphorilation">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;protein_modification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#protein_modification -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;protein_modification"/>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#sulfation -->
+
+    <owl:ObjectProperty rdf:about="&Property_Partition;sulfation">
+        <rdfs:subPropertyOf rdf:resource="&Property_Partition;protein_modification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#CompositeChainDomain -->
+
+    <owl:Class rdf:about="&Property_Partition;CompositeChainDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <structure xml:lang="en">../img/Composite_Chain_abstract.png</structure>
+        <sample xml:lang="en">../img/Composite_Chain_instance.png</sample>
+        <motivation xml:lang="en">A composite chain can be appreciated by the following example: the son of the brother of my father is my cousin. The same structure can be applied for modelling, for example, the sucessive modifications that a protein goes through. The key on the composite chain is that there are two chains, but one of them is composed by a relationship that will be inferred by the reasoner: the reasoner will first infer that the brother of my father is my uncle (first chain: father + brother = uncle), and then that the son of my uncle is my cousin (second chain: uncle + son = cousin). The property uncle is common to both chains</motivation>
+        <name xml:lang="en">Composite Property Chain</name>
+        <classification xml:lang="en">Domain Modelling</classification>
+        <result xml:lang="en">The double chain is modelled. This allows for queries with the composite properties (e.g. has_uncle and has_cousin)</result>
+        <implementation xml:lang="en">The only main step of this ODP is to create both chains, and to link the appropriate individuals</implementation>
+        <elements xml:lang="en">This ODP is made by five object properties, grouped in two chains. Both chains have one object property in common: in one of them it is the head and in the other it is one of the precedents</elements>
+        <aim xml:lang="en">To model a double chain of properties, i.e. two chains that link four individuals</aim>
+        <reference xml:lang="en">http://odps.sourceforge.net</reference>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#FamilyMember -->
+
+    <owl:Class rdf:about="&Property_Partition;FamilyMember">
+        <rdfs:subClassOf rdf:resource="&Property_Partition;CompositeChainDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#Protein -->
+
+    <owl:Class rdf:about="&Property_Partition;Protein">
+        <rdfs:subClassOf rdf:resource="&Property_Partition;CompositeChainDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#cousin -->
+
+    <owl:NamedIndividual rdf:about="&Property_Partition;cousin">
+        <rdf:type rdf:resource="&Property_Partition;FamilyMember"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#father -->
+
+    <owl:NamedIndividual rdf:about="&Property_Partition;father">
+        <rdf:type rdf:resource="&Property_Partition;FamilyMember"/>
+        <has_brother rdf:resource="&Property_Partition;uncle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#person -->
+
+    <owl:NamedIndividual rdf:about="&Property_Partition;person">
+        <rdf:type rdf:resource="&Property_Partition;FamilyMember"/>
+        <has_father rdf:resource="&Property_Partition;father"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#prot_A -->
+
+    <owl:Thing rdf:about="&Property_Partition;prot_A">
+        <rdf:type rdf:resource="&Property_Partition;Protein"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <oxidation rdf:resource="&Property_Partition;prot_B"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#prot_B -->
+
+    <owl:Thing rdf:about="&Property_Partition;prot_B">
+        <rdf:type rdf:resource="&Property_Partition;Protein"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <phosphorilation rdf:resource="&Property_Partition;prot_C"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#prot_C -->
+
+    <owl:Thing rdf:about="&Property_Partition;prot_C">
+        <rdf:type rdf:resource="&Property_Partition;Protein"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <sulfation rdf:resource="&Property_Partition;prot_D"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#prot_D -->
+
+    <owl:Thing rdf:about="&Property_Partition;prot_D">
+        <rdf:type rdf:resource="&Property_Partition;Protein"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/Composite_Property_Chain.owl#uncle -->
+
+    <owl:NamedIndividual rdf:about="&Property_Partition;uncle">
+        <rdf:type rdf:resource="&Property_Partition;FamilyMember"/>
+        <has_son rdf:resource="&Property_Partition;cousin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&Property_Partition;cousin"/>
+            <rdf:Description rdf:about="&Property_Partition;father"/>
+            <rdf:Description rdf:about="&Property_Partition;person"/>
+            <rdf:Description rdf:about="&Property_Partition;uncle"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

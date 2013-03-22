@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Closure.owl" uri="Closure.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/DefinedClass_Description.owl" uri="DefinedClass_Description.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Normalisation.owl" uri="Normalisation.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Feature_Value.owl" uri="Entity_Feature_Value.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Property_Quality.owl" uri="Entity_Property_Quality.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Entity_Quality.owl" uri="Entity_Quality.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Selector.owl" uri="Selector.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl" uri="Upper_Level_Ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1344458751687" name="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Value_Partition.owl" uri="Value_Partition.owl"/>
+    </group>
+</catalog>

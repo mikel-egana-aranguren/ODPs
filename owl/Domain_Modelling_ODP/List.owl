@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY odp "http://www.gong.manchester.ac.uk/odp/odp.owl#" >
+    <!ENTITY odp2 "http://www.gong.manchester.ac.uk/odp/owl/odp.owl#" >
+    <!ENTITY List "http://www.gong.manchester.ac.uk/odp/owl/List.owl#" >
+    <!ENTITY List2 "http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/List.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/List.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Domain_Modelling_ODP/List.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:List2="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/List.owl#"
+     xmlns:odp="http://www.gong.manchester.ac.uk/odp/odp.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:List="http://www.gong.manchester.ac.uk/odp/owl/List.owl#"
+     xmlns:odp2="http://www.gong.manchester.ac.uk/odp/owl/odp.owl#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Domain_Modelling_ODP/List.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&List;implementation"/>
+    <owl:AnnotationProperty rdf:about="&List;additional_information"/>
+    <owl:AnnotationProperty rdf:about="&List;elements"/>
+    <owl:AnnotationProperty rdf:about="&List2;reference"/>
+    <owl:AnnotationProperty rdf:about="&List;name"/>
+    <owl:AnnotationProperty rdf:about="&List2;classification"/>
+    <owl:AnnotationProperty rdf:about="&List;aim"/>
+    <owl:AnnotationProperty rdf:about="&List;also_known_as"/>
+    <owl:AnnotationProperty rdf:about="&List;motivation"/>
+    <owl:AnnotationProperty rdf:about="&List2;sample"/>
+    <owl:AnnotationProperty rdf:about="&List;result"/>
+    <owl:AnnotationProperty rdf:about="&List;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&List;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#gene_structure_contents -->
+
+    <owl:ObjectProperty rdf:about="&List;gene_structure_contents">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#gene_structure_next -->
+
+    <owl:ObjectProperty rdf:about="&List;gene_structure_next">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&List;gene_structure_rest"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#gene_structure_rest -->
+
+    <owl:ObjectProperty rdf:about="&List;gene_structure_rest">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#AnyGeneContainingExon -->
+
+    <owl:Class rdf:about="&List;AnyGeneContainingExon">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_rest"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any Gene that contatins exons</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#AnyGeneEndingTerminator -->
+
+    <owl:Class rdf:about="&List;AnyGeneEndingTerminator">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_rest"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any gene that ends with a Terminator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#AnyGeneSuccesiveExons -->
+
+    <owl:Class rdf:about="&List;AnyGeneSuccesiveExons">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_rest"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any gene with two succesive exons</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#EmptyList -->
+
+    <owl:Class rdf:about="&List;EmptyList">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#Exon -->
+
+    <owl:Class rdf:about="&List;Exon">
+        <rdfs:subClassOf rdf:resource="&List;GeneElement"/>
+        <owl:disjointWith rdf:resource="&List;Intron"/>
+        <owl:disjointWith rdf:resource="&List;Promoter"/>
+        <owl:disjointWith rdf:resource="&List;Terminator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneA -->
+
+    <owl:Class rdf:about="&List;GeneA">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                        <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                <owl:someValuesFrom>
+                                                                    <owl:Class>
+                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                                        <owl:someValuesFrom>
+                                                                                            <owl:Class>
+                                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                                    <owl:Class>
+                                                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                                                            <owl:Restriction>
+                                                                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                                                                <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                                                                            </owl:Restriction>
+                                                                                                        </owl:intersectionOf>
+                                                                                                    </owl:Class>
+                                                                                                    <owl:Restriction>
+                                                                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                                                        <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                                                                                    </owl:Restriction>
+                                                                                                </owl:intersectionOf>
+                                                                                            </owl:Class>
+                                                                                        </owl:someValuesFrom>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                            <owl:Restriction>
+                                                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                                            </owl:Restriction>
+                                                                        </owl:intersectionOf>
+                                                                    </owl:Class>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Intron &gt; Exon &gt; Intron &gt; Exon &gt; Terminator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneB -->
+
+    <owl:Class rdf:about="&List;GeneB">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                        <owl:someValuesFrom>
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <owl:Class>
+                                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                                            <owl:Restriction>
+                                                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                                                <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                                                            </owl:Restriction>
+                                                                                        </owl:intersectionOf>
+                                                                                    </owl:Class>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                                        <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                        </owl:someValuesFrom>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Exon &gt; Intron &gt; Exon &gt; Terminator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneC -->
+
+    <owl:Class rdf:about="&List;GeneC">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Intron &gt; Exon</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneD -->
+
+    <owl:Class rdf:about="&List;GeneD">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                <owl:someValuesFrom>
+                                                                    <owl:Class>
+                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                                        <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                            <owl:Restriction>
+                                                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                                <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                                                            </owl:Restriction>
+                                                                        </owl:intersectionOf>
+                                                                    </owl:Class>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Intron &gt; Exon &gt; Intron</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneE -->
+
+    <owl:Class rdf:about="&List;GeneE">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                        <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                        <owl:someValuesFrom>
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <owl:Class>
+                                                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                                                            <owl:Restriction>
+                                                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                                                <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                                                            </owl:Restriction>
+                                                                                        </owl:intersectionOf>
+                                                                                    </owl:Class>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                                        <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                        </owl:someValuesFrom>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                                <owl:someValuesFrom rdf:resource="&List;Exon"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Intron &gt; Exon &gt; Exon &gt; Terminator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneElement -->
+
+    <owl:Class rdf:about="&List;GeneElement">
+        <rdfs:subClassOf rdf:resource="&List;ListDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneF -->
+
+    <owl:Class rdf:about="&List;GeneF">
+        <rdfs:subClassOf rdf:resource="&List;GeneStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&List;GeneStructure"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="&List;GeneStructure"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="&List;gene_structure_next"/>
+                                                                <owl:someValuesFrom rdf:resource="&List;EmptyList"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                                        <owl:someValuesFrom rdf:resource="&List;Terminator"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                                <owl:someValuesFrom rdf:resource="&List;Intron"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&List;gene_structure_contents"/>
+                <owl:someValuesFrom rdf:resource="&List;Promoter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Promoter &gt; Intron &gt; Terminator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#GeneStructure -->
+
+    <owl:Class rdf:about="&List;GeneStructure">
+        <rdfs:subClassOf rdf:resource="&List;ListDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#Intron -->
+
+    <owl:Class rdf:about="&List;Intron">
+        <rdfs:subClassOf rdf:resource="&List;GeneElement"/>
+        <owl:disjointWith rdf:resource="&List;Promoter"/>
+        <owl:disjointWith rdf:resource="&List;Terminator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#ListDomain -->
+
+    <owl:Class rdf:about="&List;ListDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <List:side_effects xml:lang="en">(i) If very long and complex lists are used there can be a decrease in reasoning performance. (ii) Maintenance of Lists is a very difficult task</List:side_effects>
+        <List:structure xml:lang="en">../img/List_abstract.png</List:structure>
+        <List2:sample xml:lang="en">../img/List_instance.png</List2:sample>
+        <List:motivation xml:lang="en">An ordered group of elements is a very intuitive modelling structure, yet the semantics of such a construct in OWL DL are complex. Biology is full of structures where the order of the elements is vital (e.g. parts of genes). If that order is altered (e.g. a change of the order of introns and exons in a gene) there can be serious damage in biological systems</List:motivation>
+        <List2:classification xml:lang="en">Domain Modelling</List2:classification>
+        <List:also_known_as xml:lang="en">Linked list</List:also_known_as>
+        <List:name xml:lang="en">List</List:name>
+        <List2:reference xml:lang="en">Nick Drummond, Alan Rector, Robert Stevens, Georgina Moulton, Matthew Horridge, Hai H. Wang, Julian Seidenberg. Putting OWL in Order: Patterns for Sequences in OWL. OWLed 2006</List2:reference>
+        <List2:reference xml:lang="en">Robert Stevens, Mikel Egana Aranguren, Katy Wolnstencroft, Ulrike Sattler, Nick Drummond and Mathew Horridge. Using OWL to Model Biological Knowledge. International Journal of Human Computer Studies 2006, 65:7, 583-594</List2:reference>
+        <List:additional_information xml:lang="en">The Linked List is one of the oldest and most widely used data structures in computer science; plenty of programming languages offer primitives similar to it. The Circularly Linked List is a List that ends up with the beggining of itself, creating a circle. The application of the Circularly Linked List in OWL DL has not been investigated yet. The wikipedia entry offers plenty of information on the subject: http://en.wikipedia.org/wiki/Linked_list</List:additional_information>
+        <List:aim xml:lang="en">The List is used to model ordered elements, representing the semantics of the order: in this case the ODP will be used to build a gene starting from some elements of the Sequence Ontology: Promoter (SO:0000167), Terminator (SO:0000141), Intron (SO:0000188) and Exon (SO:0000147). For the sake of clarity a minimalist gene is built, with a very simple structure</List:aim>
+        <List:elements xml:lang="en">The most important elements are the different classes that can be used to build the List (Promoter, Terminator, Intron and Exon) and the class that it is modelled using the List (in this case Gene). The needed relationships are: Contents (functional), Rest (transitive) and Next (functional and a subproperty of Rest)</List:elements>
+        <List:result xml:lang="en">The result is the class Gene, with the elements in the proper order. Apart of being an efficient way of modelling ordered elements, Lists offer the possibility of creating a powerful classyfing system: Lists of plenty of kinds can be defined (e.g. definitions of the following type: any List containing elements A and B, not followed by C and then followed by two D-s) and they will be put in the correct position of the hierarchy of already defined lists. Using that procedure, for example, different protein fingerprints (lists of regular expressions) or different kinds of genes can be defined. The models can be queried, for example, with a given gene defined with a certain ordered combination of introns, exons, promoter and terminator to see in which position of the hierarchy is classified and to which genes does it relate</List:result>
+        <List:implementation xml:lang="en">There is a Protege wizard available for easily creating lists</List:implementation>
+        <List2:reference xml:lang="en">http://www.co-ode.org/resources/tutorials/bio/</List2:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#Promoter -->
+
+    <owl:Class rdf:about="&List;Promoter">
+        <rdfs:subClassOf rdf:resource="&List;GeneElement"/>
+        <owl:disjointWith rdf:resource="&List;Terminator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/List.owl#Terminator -->
+
+    <owl:Class rdf:about="&List;Terminator">
+        <rdfs:subClassOf rdf:resource="&List;GeneElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

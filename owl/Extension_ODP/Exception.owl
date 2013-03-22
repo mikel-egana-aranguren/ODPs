@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Exception "http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Extension_ODP/Exception.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Extension_ODP/Exception.owl"
+     xmlns:Exception="http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Extension_ODP/Exception.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Exception;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&Exception;reference"/>
+    <owl:AnnotationProperty rdf:about="&Exception;elements"/>
+    <owl:AnnotationProperty rdf:about="&Exception;Result"/>
+    <owl:AnnotationProperty rdf:about="&Exception;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Exception;classification"/>
+    <owl:AnnotationProperty rdf:about="&Exception;aim"/>
+    <owl:AnnotationProperty rdf:about="&Exception;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Exception;sample"/>
+    <owl:AnnotationProperty rdf:about="&Exception;name"/>
+    <owl:AnnotationProperty rdf:about="&Exception;structure"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#has_nucleus -->
+
+    <owl:ObjectProperty rdf:about="&Exception;has_nucleus"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#AtypicalEukaryoticCell -->
+
+    <owl:Class rdf:about="&Exception;AtypicalEukaryoticCell">
+        <rdfs:subClassOf rdf:resource="&Exception;EukaryoticCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#AtypicalRedBloodCell -->
+
+    <owl:Class rdf:about="&Exception;AtypicalRedBloodCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;RedBloodCell"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Exception;has_nucleus"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Exception;RedBloodCell"/>
+        <owl:disjointWith rdf:resource="&Exception;TypicalRedBloodCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#AvianRedBloodCell -->
+
+    <owl:Class rdf:about="&Exception;AvianRedBloodCell">
+        <rdfs:subClassOf rdf:resource="&Exception;RedBloodCell"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Exception;has_nucleus"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#Cell -->
+
+    <owl:Class rdf:about="&Exception;Cell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;EukaryoticCell"/>
+                    <rdf:Description rdf:about="&Exception;ProkaryoticCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Exception;ExceptionDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#EukaryoticCell -->
+
+    <owl:Class rdf:about="&Exception;EukaryoticCell">
+        <rdfs:subClassOf rdf:resource="&Exception;Cell"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;AtypicalEukaryoticCell"/>
+                    <rdf:Description rdf:about="&Exception;TypicalEukaryoticCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#ExceptionDomain -->
+
+    <owl:Class rdf:about="&Exception;ExceptionDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Exception:structure xml:lang="en">../img/Exception_abstract.png</Exception:structure>
+        <Exception:sample xml:lang="en">../img/Exception_instance.png</Exception:sample>
+        <Exception:Result xml:lang="en">After reasoning the correct hierarchy is obtained, with the typical/atypical distinction at every level</Exception:Result>
+        <Exception:name xml:lang="en">Exception</Exception:name>
+        <Exception:classification xml:lang="en">Extension</Exception:classification>
+        <Exception:side_effects xml:lang="en">If the ODP is used in plenty of different levels of the ontology it can produce too complex and unmanageable ontologies. This type of structure can be very counter-intuitive for biologists</Exception:side_effects>
+        <Exception:motivation xml:lang="en">Plenty of areas of knowledge work with defaults or canonical knowledge: biological classifications, for example, state what is the canonical norm and then the exceptions are classified under the norm, even if the classification is inconsistent from the point of view of logic. A clear example can be found in the classification of cells: in canonical biology eukaryotic cells are considered to be cells with a nucleus. Mammalian red blood cells are considered by any biologist as eukaryotic cells, but they lack a nucleus. Thus they are a subclass of eukaryotic cells, but they break the condition for belonging to that class (having a nucleus)</Exception:motivation>
+        <Exception:reference xml:lang="en">Robert Stevens, Mikel Egana Aranguren, Katy Wolnstencroft, Ulrike Sattler, Nick Drummond and Mathew Horridge. Using OWL to Model Biological Knowledge. International Journal of Human Computer Studies 2006, 65:7, 583-594</Exception:reference>
+        <Exception:implementation xml:lang="en">Starting from the example ontology described in the Aim section, two disjoint classes are created for typical and atypical elements. The discriminating condition HasNucleus is only stated in the typical subclass. A covering axiom is added to the main class (i.e. EukaryoticCell) to state that all instances must belong to one or the other subclass (TypicalEukaryoticCell or AtypicalEukaryoticCell). A covering axiom is done by creating a equivalent class (a neccesary and sufficient condition) that is the union of the subclasses (In this case TypicalEukaryoticCell and AtypicalEukaryoticCell). The reasoner will infer the whole structure</Exception:implementation>
+        <Exception:elements xml:lang="en">The most important elements are the newly created TypicalEukaryoticCell, TypicalRedBloodCell, AtypicalEukaryoticCell, AtypicalRedBloodCell classes. The rest of the classes are maintained. The most important object property is the discriminating property, in this case, HasNucleus</Exception:elements>
+        <rdfs:comment xml:lang="en">The most important elements are the newly created TypicalEukaryoticCell, TypicalRedBloodCell, AtypicalEukaryoticCell, AtypicalRedBloodCell classes. The rest of the classes are maintained. The most important property is the discriminating property, in this case, hasNucleus</rdfs:comment>
+        <Exception:reference xml:lang="en">http://www.co-ode.org/resources/tutorials/bio/</Exception:reference>
+        <Exception:aim xml:lang="en">to model exceptions without breaking the strict class-subclass hierarchy: for example the class MammalianRedBloodCell (with the restriction HasNucleus exactly 0) would be a subclass of EukaryoticCell (with the restriction HasNucleus exactly 1), resulting in an inconsistent ontology. There can be exceptions to the exception in the next level: avian red blood cells do posses a nucleus, thus, they are considered normal eukaryotic cells (they are an exception to the norm that all red blood cells lack a nucleus). So the problem that this ODP solves can rise in different levels</Exception:aim>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#MammalianRedBloodCell -->
+
+    <owl:Class rdf:about="&Exception;MammalianRedBloodCell">
+        <rdfs:subClassOf rdf:resource="&Exception;RedBloodCell"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Exception;has_nucleus"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#ProkaryoticCell -->
+
+    <owl:Class rdf:about="&Exception;ProkaryoticCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;Cell"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&Exception;EukaryoticCell"/>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Exception;has_nucleus"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Exception;Cell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#RedBloodCell -->
+
+    <owl:Class rdf:about="&Exception;RedBloodCell">
+        <rdfs:subClassOf rdf:resource="&Exception;EukaryoticCell"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;AtypicalRedBloodCell"/>
+                    <rdf:Description rdf:about="&Exception;TypicalRedBloodCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#TypicalEukaryoticCell -->
+
+    <owl:Class rdf:about="&Exception;TypicalEukaryoticCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Exception;EukaryoticCell"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Exception;has_nucleus"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&Exception;EukaryoticCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Extensional_ODP/Exception.owl#TypicalRedBloodCell -->
+
+    <owl:Class rdf:about="&Exception;TypicalRedBloodCell">
+        <rdfs:subClassOf rdf:resource="&Exception;RedBloodCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

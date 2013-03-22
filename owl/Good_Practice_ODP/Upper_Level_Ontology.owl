@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Upper_Level_Ontology "http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#"
+     xml:base="http://odps.sourceforge.net/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Upper_Level_Ontology="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
+    <owl:Ontology rdf:about="http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;implementation"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;aim"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;also_known_as"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;sample"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;result"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;motivation"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;name"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;elements"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;side_effects"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;reference"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;structure"/>
+    <owl:AnnotationProperty rdf:about="&Upper_Level_Ontology;classification"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#BiologicalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;BiologicalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalEntity"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;BiologicalOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#BiologicalEntity -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;BiologicalEntity">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;UpperLevelOntologyDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#BiologicalOccurrent -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;BiologicalOccurrent">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#DependentOrganismalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;DependentOrganismalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;OrganismalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;IndependentOrganismalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#ExtraOrganismalBiologicalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;ExtraOrganismalBiologicalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;OrganismalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#ExtraOrganismalBiologicalOccurrent -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;ExtraOrganismalBiologicalOccurrent">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalOccurrent"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;OrganismalOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#IndependentOrganismalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;IndependentOrganismalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;OrganismalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#InmaterialAnatomicalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;InmaterialAnatomicalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;DependentOrganismalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;InmaterialPathologicalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;PhysiologicalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#InmaterialPathologicalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;InmaterialPathologicalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;DependentOrganismalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;PhysiologicalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#MaterialAnatomicalEnttity -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;MaterialAnatomicalEnttity">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;IndependentOrganismalContinuant"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;MaterialPathologicalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#MaterialPathologicalEntity -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;MaterialPathologicalEntity">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;IndependentOrganismalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#OrganismalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;OrganismalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#OrganismalOccurrent -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;OrganismalOccurrent">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;BiologicalOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#PathologicalProcess -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;PathologicalProcess">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;OrganismalOccurrent"/>
+        <owl:disjointWith rdf:resource="&Upper_Level_Ontology;PhysiologicalProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#PhysiologicalContinuant -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;PhysiologicalContinuant">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;DependentOrganismalContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#PhysiologicalProcess -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;PhysiologicalProcess">
+        <rdfs:subClassOf rdf:resource="&Upper_Level_Ontology;OrganismalOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gong.manchester.ac.uk/odp/owl/Good_Practice_ODP/Upper_Level_Ontology.owl#UpperLevelOntologyDomain -->
+
+    <owl:Class rdf:about="&Upper_Level_Ontology;UpperLevelOntologyDomain">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <Upper_Level_Ontology:structure xml:lang="en">../img/Upper_Level_Ontology_abstract.png</Upper_Level_Ontology:structure>
+        <Upper_Level_Ontology:sample xml:lang="en">../img/Upper_Level_Ontology_instance.png</Upper_Level_Ontology:sample>
+        <Upper_Level_Ontology:elements xml:lang="en">All the classes that represent a conceptual category</Upper_Level_Ontology:elements>
+        <Upper_Level_Ontology:reference xml:lang="en">Barry Smith et al. A Strategy for Improving and Integrating Biomedical Ontologies. AMIA 2005</Upper_Level_Ontology:reference>
+        <Upper_Level_Ontology:result xml:lang="en">By endorsing to a given Upper Level Ontology when building a domain ontology the ontologists makes the integration of the ontology with other ontologies a much easier process. Besides, the ontology becomes a cleaner model with different modules</Upper_Level_Ontology:result>
+        <Upper_Level_Ontology:motivation xml:lang="en">Different ontologies of a given domain share very general types of concepts, like Substance, Modifier, etc. These types of concepts are grounded in philosophical criteria, like distinctions between Occurents and Continuants. The different domain ontologies can thus be integrated in one Upper Level Ontology, each ontology having different relationships pointing to the concepts of the Upper Level Ontology. The Upper Level Ontology used here as an example is the Ontology of Biomedical Reality (OBR)</Upper_Level_Ontology:motivation>
+        <Upper_Level_Ontology:also_known_as xml:lang="en">Foundational ontology</Upper_Level_Ontology:also_known_as>
+        <Upper_Level_Ontology:classification xml:lang="en">Good Practice</Upper_Level_Ontology:classification>
+        <Upper_Level_Ontology:implementation xml:lang="en">The different hierarchies of primitive classes must be asserted using disjoints</Upper_Level_Ontology:implementation>
+        <Upper_Level_Ontology:side_effects xml:lang="en">The ontology is committed to a concrete view of the knowledge domain (given by the Upper Level Ontology), and therefore the use and implantation of Upper Level Ontologies is very controversial</Upper_Level_Ontology:side_effects>
+        <Upper_Level_Ontology:aim xml:lang="en">To create an ontology that can integrate different ontologies in itself</Upper_Level_Ontology:aim>
+        <Upper_Level_Ontology:name xml:lang="en">Upper Level Ontology</Upper_Level_Ontology:name>
+        <Upper_Level_Ontology:reference xml:lang="en">http://www.co-ode.org/resources/tutorials/bio/</Upper_Level_Ontology:reference>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment>Re-generated with P4.2.0 (Build 276)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
